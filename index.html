@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eyoul - Software Engineer</title>
+    <title>Eyoul Shimeles - Software Engineer</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
             --primary-color: #2ecc71;
@@ -24,13 +26,14 @@
             color: var(--dark-color);
         }
 
-        /* Navigation */
+        /* Navbar */
         .navbar {
             padding: 1rem;
             background-color: var(--dark-color);
             position: fixed;
             width: 100%;
             top: 0;
+            z-index: 10;
         }
 
         .nav-links {
@@ -49,14 +52,16 @@
             font-weight: 500;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('coding-bg.jpg');
+
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('coding-bg.jpg');
             background-size: cover;
             color: white;
             padding: 0 2rem;
@@ -67,7 +72,30 @@
             margin-bottom: 1rem;
         }
 
-        /* Projects Section */
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.8rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Lead Magnet CTA */
+        .lead-magnet {
+            background: #ffffff;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .lead-magnet h2 {
+            margin-bottom: 1rem;
+        }
+
+        /* Projects */
         .projects {
             padding: 5rem 2rem;
             background-color: var(--light-color);
@@ -88,7 +116,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Skills Section */
+        /* Skills */
         .skills {
             padding: 5rem 2rem;
             text-align: center;
@@ -102,7 +130,7 @@
             margin: 2rem auto;
         }
 
-        /* Contact Section */
+        /* Contact */
         .contact {
             padding: 5rem 2rem;
             background-color: var(--dark-color);
@@ -120,7 +148,9 @@
 
         input, textarea {
             width: 100%;
-            padding: 0.5rem;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 5px;
             margin-top: 0.5rem;
         }
 
@@ -133,21 +163,28 @@
             cursor: pointer;
         }
 
-        /* Responsive Design */
+        .social-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-links a {
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-            
-            .nav-links {
-                flex-direction: column;
-                text-align: center;
-                display: none;
-            }
         }
     </style>
 </head>
+
 <body>
+
     <!-- Navigation -->
     <nav class="navbar">
         <ul class="nav-links">
@@ -168,57 +205,72 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Lead Magnet Section -->
+    <section class="lead-magnet">
+        <h2>🎁 Get My Free AI Toolkit for Internal Auditors</h2>
+        <p>Learn how to automate findings, risk assessment, and follow-up using AI tools.</p>
+        <a href="YOUR-LANDING-PAGE-URL" class="btn">Download Free Toolkit</a>
+    </section>
+
+    <!-- Projects -->
     <section id="projects" class="projects">
         <h2>Featured Projects</h2>
         <div class="projects-grid">
+
             <div class="project-card">
                 <h3>E-commerce Platform</h3>
-                <p>Full-stack e-commerce solution with React and Node.js</p>
-                <p>Tech: React, Node.js, MongoDB, Stripe API</p>
-                <a href="#">Live Demo</a> | <a href="https://github.com/eyoul">GitHub</a>
+                <p>Full-stack e-commerce solution with React and Node.js.</p>
+                <p><strong>Tech:</strong> React, Node.js, MongoDB, Stripe</p>
+                <a href="#">Demo</a> | <a href="https://github.com/eyoul">GitHub</a>
             </div>
-            <!-- Add more project cards -->
+
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills" class="skills">
         <h2>Technical Skills</h2>
+
         <div class="skills-grid">
             <div>
                 <h3>Frontend</h3>
-                <p>React, JavaScript, HTML5, CSS3</p>
+                <p>React, JavaScript, HTML, CSS</p>
             </div>
+
             <div>
                 <h3>Backend</h3>
-                <p>Node.js, Python, REST APIs, SQL</p>
+                <p>Python, Django, Flask, Node.js, REST APIs</p>
             </div>
-            <!-- Add more skill categories -->
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
-<form class="contact-form" action="https://formsubmit.co/joelwagaye@gmail.com" method="POST">
+
+<form class="contact-form" action="https://formsubmit.co/eyoulshimeles@gmail.com" method="POST">
+
     <div class="form-group">
-        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="name" placeholder="Your Name" required>
     </div>
+
     <div class="form-group">
-        <input type="email" name="email" placeholder="Email" required>
+        <input type="email" name="email" placeholder="Your Email" required>
     </div>
+
     <div class="form-group">
-        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
     </div>
+
     <button type="submit">Send Message</button>
 </form>
 
         <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/eyoul"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/eyoul"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </section>
+
 </body>
 </html>
