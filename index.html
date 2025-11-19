@@ -64,7 +64,7 @@ body {
     justify-content: center;
     text-align: center;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('coding-bg.jpg') center/cover no-repeat;
+                url('hero-bg.jpg') center/cover no-repeat;
     color: white;
     padding: 0 2rem;
 }
@@ -115,7 +115,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Projects Carousel */
+/* Projects Manual Slider */
 .projects {
     padding: 5rem 2rem;
     background-color: var(--light-color);
@@ -126,19 +126,16 @@ body {
     margin-bottom: 2rem;
 }
 
-.projects-carousel {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
+.projects-slider-container {
+    position: relative;
     max-width: 1000px;
     margin: 0 auto;
-    position: relative;
-    border-radius: 10px;
+    overflow: hidden;
 }
 
-.project-track {
+.projects-slider {
     display: flex;
-    animation: scroll 20s linear infinite;
+    transition: transform 0.5s ease-in-out;
 }
 
 .project-card {
@@ -172,9 +169,25 @@ body {
     font-weight: 500;
 }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+
+.arrow:hover {
+    background: var(--primary-color);
 }
 
 /* Skills */
@@ -292,11 +305,12 @@ button:hover {
     <a href="YOUR-LANDING-PAGE-URL" class="btn">Download Free Toolkit</a>
 </section>
 
-<!-- Projects Carousel -->
+<!-- Projects Manual Slider -->
 <section id="projects" class="projects">
     <h2>Featured Projects</h2>
-    <div class="projects-carousel">
-        <div class="project-track">
+    <div class="projects-slider-container">
+        <button class="arrow left-arrow">&#10094;</button>
+        <div class="projects-slider">
             <!-- Fleet Management -->
             <div class="project-card">
                 <h3>Fleet Management System</h3>
@@ -321,8 +335,8 @@ button:hover {
                 <a href="https://app.readytensor.ai/publications/audit-assistant-chatbot-KKZM5lCec2Y3" target="_blank">Demo</a> | 
                 <a href="https://github.com/eyoul/auditguard-chatbot" target="_blank">GitHub</a>
             </div>
-
         </div>
+        <button class="arrow right-arrow">&#10095;</button>
     </div>
 </section>
 
@@ -367,6 +381,30 @@ button:hover {
         <a href="#"><i class="fab fa-twitter"></i></a>
     </div>
 </section>
+
+<script>
+// Manual Project Slider
+const slider = document.querySelector('.projects-slider');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+
+let scrollAmount = 0;
+const cardWidth = 320; // 300px card + 20px margin
+
+rightArrow.addEventListener('click', () => {
+    if (scrollAmount < (slider.scrollWidth - slider.clientWidth)) {
+        scrollAmount += cardWidth;
+        slider.style.transform = `translateX(-${scrollAmount}px)`;
+    }
+});
+
+leftArrow.addEventListener('click', () => {
+    if (scrollAmount > 0) {
+        scrollAmount -= cardWidth;
+        slider.style.transform = `translateX(-${scrollAmount}px)`;
+    }
+});
+</script>
 
 </body>
 </html>
