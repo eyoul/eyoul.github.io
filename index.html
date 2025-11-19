@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eyoul Shimeles - Software Engineer</title>
+    <title>Eyoul Shimeles - Full Stack Developer</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -50,6 +50,11 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
         /* Hero */
@@ -59,16 +64,27 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('coding-bg.jpg');
-            background-size: cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('your-profile-bg.jpg') center/cover no-repeat;
             color: white;
             padding: 0 2rem;
         }
 
+        .hero-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
@@ -81,6 +97,11 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #27ae60;
         }
 
         /* Lead Magnet CTA */
@@ -101,6 +122,11 @@
             background-color: var(--light-color);
         }
 
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -112,8 +138,29 @@
         .project-card {
             background: white;
             padding: 1.5rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .project-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
         }
 
         /* Skills */
@@ -130,16 +177,25 @@
             margin: 2rem auto;
         }
 
+        .skills-grid div {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
         /* Contact */
         .contact {
             padding: 5rem 2rem;
             background-color: var(--dark-color);
             color: white;
+            text-align: center;
         }
 
         .contact-form {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 2rem auto;
+            text-align: left;
         }
 
         .form-group {
@@ -148,7 +204,7 @@
 
         input, textarea {
             width: 100%;
-            padding: 0.7rem;
+            padding: 0.8rem;
             border: none;
             border-radius: 5px;
             margin-top: 0.5rem;
@@ -157,10 +213,16 @@
         button {
             background-color: var(--primary-color);
             color: white;
-            padding: 0.7rem 2rem;
+            padding: 0.8rem 2rem;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #27ae60;
         }
 
         .social-links {
@@ -170,14 +232,22 @@
 
         .social-links a {
             margin: 0 1rem;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: white;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
+            }
+            .hero-content h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -198,16 +268,17 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <img src="your-profile-picture.jpg" alt="Eyoul Shimeles">
             <h1>Eyoul Shimeles</h1>
             <h2>Full Stack Developer</h2>
-            <p>Building digital solutions that make a difference</p>
+            <p>Building digital solutions that make a real impact in businesses and communities</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
 
     <!-- Lead Magnet Section -->
     <section class="lead-magnet">
-        <h2>🎁 Get My Free AI Toolkit for Internal Auditors</h2>
+        <h2>🎁 Free AI Toolkit for Internal Auditors</h2>
         <p>Learn how to automate findings, risk assessment, and follow-up using AI tools.</p>
         <a href="YOUR-LANDING-PAGE-URL" class="btn">Download Free Toolkit</a>
     </section>
@@ -218,9 +289,16 @@
         <div class="projects-grid">
 
             <div class="project-card">
-                <h3>E-commerce Platform</h3>
-                <p>Full-stack e-commerce solution with React and Node.js.</p>
-                <p><strong>Tech:</strong> React, Node.js, MongoDB, Stripe</p>
+                <h3>Fleet Management System</h3>
+                <p>Manage vehicles, drivers, trips, and maintenance using a modern full-stack solution.</p>
+                <p><strong>Tech:</strong> Flask, React, SQLite, WebSockets</p>
+                <a href="#">Demo</a> | <a href="https://github.com/eyoul">GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Internal Audit Management</h3>
+                <p>Comprehensive system for planning audits, recording findings, and tracking follow-ups.</p>
+                <p><strong>Tech:</strong> Django, Python, PostgreSQL, REST APIs</p>
                 <a href="#">Demo</a> | <a href="https://github.com/eyoul">GitHub</a>
             </div>
 
@@ -230,16 +308,18 @@
     <!-- Skills -->
     <section id="skills" class="skills">
         <h2>Technical Skills</h2>
-
         <div class="skills-grid">
             <div>
                 <h3>Frontend</h3>
                 <p>React, JavaScript, HTML, CSS</p>
             </div>
-
             <div>
                 <h3>Backend</h3>
                 <p>Python, Django, Flask, Node.js, REST APIs</p>
+            </div>
+            <div>
+                <h3>Database & Cloud</h3>
+                <p>PostgreSQL, MongoDB, AWS, Docker</p>
             </div>
         </div>
     </section>
@@ -248,22 +328,22 @@
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
 
-<form class="contact-form" action="https://formsubmit.co/eyoulshimeles@gmail.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/eyoulshimeles@gmail.com" method="POST">
 
-    <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
-    </div>
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
 
-    <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
-    </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
 
-    <div class="form-group">
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
 
-    <button type="submit">Send Message</button>
-</form>
+            <button type="submit">Send Message</button>
+        </form>
 
         <div class="social-links">
             <a href="https://github.com/eyoul"><i class="fab fa-github"></i></a>
